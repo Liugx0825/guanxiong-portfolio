@@ -1,0 +1,17 @@
+# Local files and editor caches
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+*.zip
+*.tar.gz
+
+# Hosting and local credentials
+.env
+.env.*
+.openai/
+.sites-runtime/
+.vercel/
+node_modules/

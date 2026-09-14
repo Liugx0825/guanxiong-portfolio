@@ -1,0 +1,64 @@
+.sy-hero{padding:42px 4.5% 30px;background:#e9ece8}
+.sy-hero-heading{display:grid;grid-template-columns:1.1fr 1fr;gap:9%;padding:0 2.8% 38px;align-items:end}
+.sy-hero-heading .small{color:#916139}
+.sy-hero h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(35px,4.2vw,64px);font-weight:400;line-height:1.35;margin:22px 0}
+.sy-project-name{font-size:18px;margin:0;color:#6a6056}
+.sy-hero-intro>p{font-size:17px;line-height:1.9;margin:0 0 24px}
+.sy-hero-intro dl{font-size:14px}.sy-hero-intro dl div{grid-template-columns:100px 1fr}
+.sy-hero-image figure{margin:0}.sy-hero-image img{display:block;width:100%;height:auto}
+.sy-hero-image figcaption{margin:12px 2.8% 0;font-size:14px}
+.sy-section .section-head .small{color:#916139}
+.sy-section .section-copy{max-width:790px}
+.sy-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.sy-principles article{border-top:2px solid #a27b53;padding-top:20px}
+.sy-principles .small{color:#916139}
+.sy-principles h3{font-size:24px;margin:12px 0}
+.sy-principles p{font-size:16px;line-height:1.9;color:#5d6159}
+.sy-source-disclosure{margin-top:35px;border-top:1px solid #c5c7bd;padding-top:20px}
+.sy-source-disclosure summary{cursor:pointer;font-size:16px}
+.sy-source-disclosure figure{max-width:1050px;margin:25px auto 0}
+.sy-source-disclosure img{display:block;width:100%;height:auto}
+#sy-evolution,#sy-hyperlink{background:#e9ece8}
+.sy-stage-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:30px}
+.sy-stage-tabs button{text-align:left;background:transparent;border:1px solid #b8beb2;padding:16px 18px;color:#52594f;line-height:1.5;min-width:0;border-radius:3px}
+.sy-stage-tabs .sy-stage-date{display:block;font-family:Georgia,serif;font-size:25px;margin-bottom:6px}
+.sy-stage-tabs button>span:last-child{font-size:14px}
+.sy-stage-tabs button[aria-selected="true"]{background:#303b32;color:#fff;border-color:#303b32}
+.sy-stage-tabs button:hover{border-color:#916139}
+.sy-stage-panel{border-top:1px solid #bac1b4;padding-top:26px}
+.sy-stage-panel:focus-visible{outline:3px solid #916139;outline-offset:6px}
+.sy-stage-panel h3{font-family:Georgia,"Songti SC",serif;font-size:28px}
+.sy-stage-panel>p{max-width:880px;margin:16px 0 30px;font-size:17px;line-height:1.9;color:#555e51}
+.sy-gallery{row-gap:42px;column-gap:28px}
+.sy-gallery figure{min-width:0}
+.sy-gallery img{display:block;width:100%;height:auto;background:white}
+.sy-gallery figcaption,.sy-feature figcaption,.sy-source-disclosure figcaption{font-size:14px;line-height:1.75;color:#686d61}
+.sy-three{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.sy-feature{margin-bottom:42px}.sy-feature figure{margin:0}.sy-feature img{display:block;width:100%;height:auto}
+.sy-subheading{display:grid;grid-template-columns:1fr 1fr;gap:7%;margin:65px 0 32px;padding-top:26px;border-top:1px solid #c4c7bb;align-items:start}
+.sy-subheading h3{font-family:Georgia,"Songti SC",serif;font-size:28px}
+.sy-subheading p{font-size:17px;color:#65695e;margin:0;line-height:1.9}
+.sy-technical img{border:1px solid #d2d5cc}
+.sy-source-note{border-top:1px solid #c4c7bb;padding-top:25px;margin:48px 0 0;font-size:14px;color:#686d61;line-height:1.9}
+.shunyi-page #shunyi-scale{right:calc(3vw + 56px);width:auto;padding:0 16px;border-radius:24px;font-size:15px}
+.shunyi-page dialog.native-size{width:95vw;height:95vh}
+.shunyi-page dialog.native-size img{max-width:none;max-height:none;width:auto;height:auto}
+.shunyi-page dialog.native-size .lightbox-frame{margin:0}
+.shunyi-page dialog.native-size>p{position:sticky;left:0}
+@media(max-width:1000px){
+ .sy-hero-heading{gap:5%;align-items:start}.sy-hero h1{font-size:42px}
+ .sy-stage-tabs button{padding:13px 12px}.sy-three{grid-template-columns:1fr 1fr}
+ .sy-principles{gap:24px}.sy-principles h3{font-size:21px}
+}
+@media(max-width:700px){
+ .sy-hero{padding:28px 6% 24px}.sy-hero-heading{grid-template-columns:1fr;gap:25px;padding:0 0 28px}
+ .sy-hero h1{font-size:37px;margin:18px 0}.sy-project-name{font-size:16px}
+ .sy-hero-intro>p{font-size:16px}.sy-hero-image figcaption{margin-left:0;font-size:14px}
+ .sy-principles{grid-template-columns:1fr;gap:24px}.sy-principles p{margin-bottom:0}
+ .sy-stage-tabs{display:flex;overflow-x:auto;gap:8px;padding-bottom:8px;margin-bottom:22px;scroll-snap-type:x proximity}
+ .sy-stage-tabs button{flex:0 0 122px;scroll-snap-align:start;padding:14px}.sy-stage-tabs .sy-stage-date{font-size:24px}
+ .sy-stage-panel h3{font-size:25px}.sy-stage-panel>p{font-size:16px;line-height:1.85}
+ .sy-gallery,.sy-three{grid-template-columns:1fr;row-gap:30px}.sy-feature{margin-bottom:32px}
+ .sy-subheading{grid-template-columns:1fr;gap:18px;margin-top:42px}.sy-subheading h3{font-size:25px}
+ .sy-source-note{font-size:14px}.sy-source-disclosure figure{margin-top:24px}
+}
