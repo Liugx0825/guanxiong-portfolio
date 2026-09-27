@@ -3,9 +3,6 @@
   const zh = () => document.documentElement.lang.startsWith('zh');
   const text = (cn, en) => zh() ? cn : en;
   const label = (element) => element?.textContent.trim() || '';
-  const translate = (element) => {
-    element.querySelectorAll('[data-zh]').forEach(node => node.innerHTML = node.dataset[zh() ? 'zh' : 'en']);
-  };
   const lock = () => document.body.classList.toggle('modal-open', !!document.querySelector('dialog[open]'));
   document.querySelectorAll('dialog').forEach(d => d.addEventListener('close', lock));
 

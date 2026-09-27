@@ -21,4 +21,3 @@ if(explorationQuery){
   document.querySelectorAll('[data-project-index]').forEach(a=>a.href='index.html?'+explorationQuery+'#work');
   document.querySelectorAll('[data-project-peer]').forEach(a=>{const url=new URL(a.href,location.href);url.search=explorationQuery;a.href=url.pathname+url.search});
 }
-
