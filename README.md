@@ -6,6 +6,8 @@
 
 采用原生 HTML、CSS、JavaScript，无需安装 Node.js、运行 npm 或配置后台服务。
 
+2026-09-27 交互更新：新增精选项目大图、章节侧栏与阅读进度、项目信息抽屉、南苑门头图纸切换，以及支持缩略图、键盘翻页和原尺寸查看的全屏图像浏览器；统一使用 `experience.css`、`experience.js`。移动端章节导航横向显示，中英文和项目筛选状态沿用原逻辑。
+
 ## 发布到 Cloudflare Pages
 
 此仓库可以直接连接 Cloudflare Pages。网站首页 `index.html` 位于仓库根目录。
