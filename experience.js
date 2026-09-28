@@ -6,21 +6,30 @@
   const lock = () => document.body.classList.toggle('modal-open', !!document.querySelector('dialog[open]'));
   document.querySelectorAll('dialog').forEach(d => d.addEventListener('close', lock));
 
-  const choices = [...document.querySelectorAll('.feature-choice')];
-  function feature(button) {
+  const choices = [...document.querySelectorAll('.category-choice')];
+  let currentCategory = document.querySelector('[data-filter][aria-pressed=true]')?.dataset.filter || 'all';
+  function feature(category) {
     const link = document.querySelector('.feature-image-link');
     if (!link) return;
-    choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
-    link.href = button.dataset.href;
+    const button=choices.find(choice=>choice.dataset.categoryChoice===category)||choices[0];
+    choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice.dataset.categoryChoice===category)));
+    currentCategory=category;
     link.querySelector('img').src = button.dataset.src;
-    link.querySelector('img').alt = button.dataset[zh() ? 'titleZh' : 'titleEn'];
+    const representative=button.dataset[zh()?'representativeZh':'representativeEn'];
+    link.querySelector('img').alt=representative;
     const title = link.querySelector('h2');
-    title.dataset.zh = button.dataset.titleZh;
-    title.dataset.en = button.dataset.titleEn;
-    title.textContent = button.dataset[zh() ? 'titleZh' : 'titleEn'];
-    link.querySelector('small').textContent = String(choices.indexOf(button)+1).padStart(2,'0') + ' / SELECTED PROJECT';
+    title.textContent = category==='all'?text('作品索引','Selected works'):button.dataset[zh()?'titleZh':'titleEn'];
+    const count=document.querySelectorAll(category==='all'?'[data-project-route]':`[data-project-route][data-category="${category}"]`).length;
+    link.querySelector('.feature-category-count').textContent=category==='all'?'11 PROJECTS / 3 CATEGORIES':`${String(choices.indexOf(button)+1).padStart(2,'0')} / ${count} PROJECTS`;
+    link.querySelector('.feature-category-action').textContent=text(`浏览${category==='all'?'全部 ':''}${count} 个项目 ↗`,`Explore ${category==='all'?'all ':''}${count} projects ↗`);
+    link.querySelector('.feature-representative').textContent=text('代表画面：','Featured image: ')+representative;
+    link.classList.toggle('feature-research',category==='research');
   }
-  choices.forEach(b => b.addEventListener('click', () => feature(b)));
+  const selectCategory=category=>document.dispatchEvent(new CustomEvent('portfolio-select-category',{detail:{category,clearSearch:true}}));
+  choices.forEach(b=>b.addEventListener('click',()=>selectCategory(b.dataset.categoryChoice)));
+  document.querySelector('[data-view-all]')?.addEventListener('click',()=>selectCategory('all'));
+  document.addEventListener('portfolio-category-change',e=>feature(e.detail.category));
+  if(choices.length)feature(currentCategory);
 
   const rail = document.querySelector('.project-rail');
   if (rail) {
@@ -145,7 +154,7 @@
     viewer.addEventListener('close',()=>{fit();img.removeAttribute('src');origin?.focus({preventScroll:true});});
   }
   document.addEventListener('portfolio-language-change',()=>{
-    const active=document.querySelector('.feature-choice[aria-pressed=true]');if(active)feature(active);
+    if(choices.length)feature(currentCategory);
     document.querySelectorAll('img.zoom').forEach(image=>image.setAttribute('aria-label',image.alt+' — '+text('放大查看','Enlarge image')));
   });
 })();

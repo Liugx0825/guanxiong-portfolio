@@ -22,6 +22,7 @@
       if(!card.hidden)visible++;
     });
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===category)));
+    document.dispatchEvent(new CustomEvent('portfolio-category-change',{detail:{category}}));
     empty.hidden=visible!==0;
     const en=document.documentElement.lang==='en';
     count.textContent=en?`${visible} of ${cards.length} projects`:`${visible} / ${cards.length} 个项目`;
@@ -42,6 +43,13 @@
     render();
   }
   buttons.forEach(button=>button.addEventListener('click',()=>{category=button.dataset.filter;render(true)}));
+  document.addEventListener('portfolio-select-category',event=>{
+    const selected=event.detail.category;
+    if(!buttons.some(button=>button.dataset.filter===selected))return;
+    category=selected;
+    if(event.detail.clearSearch)input.value='';
+    render(true);
+  });
   input.addEventListener('input',()=>render(true));
   document.querySelector('#reset-projects').addEventListener('click',()=>{input.value='';category='all';render(true);input.focus()});
   document.addEventListener('portfolio-language-change',()=>render());
